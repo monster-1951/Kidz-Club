@@ -23,7 +23,7 @@ export default function Home() {
             className="rounded-lg h-fit w-fit mx-auto"
           />
         </Link>
-        <Link href={"/"} className="w-full mx-auto">
+        {/* <Link href={"/"} className="w-full mx-auto">
           <Image
             src={"/Home 1.png"}
             alt="Home"
@@ -31,7 +31,7 @@ export default function Home() {
             height={1000}
             className="rounded-lg h-fit w-fit mx-auto"
           />
-        </Link>
+        </Link> */}
       </div>
     </>
   );
