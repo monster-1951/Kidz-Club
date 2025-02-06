@@ -12,7 +12,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import Image from "next/image";
 import Link from "next/link";
 const Menu = () => {
-  const elements = ["POINTS", "VIRTUAL ASSISTANT", "LOGOUT"];
+  const elements = ["POINTS", "VIRTUAL ASSISTANT", "VIRTUAL MEETUP","LOGOUT",];
   return (
     <Sheet>
       <SheetTrigger>
@@ -22,7 +22,7 @@ const Menu = () => {
       <SheetContent className="bg-[#ffedac] sm:w-full w-[60%]">
         <SheetHeader className="  space-y-5">
           <SheetTitle className="text-center bg-[#bcb497] w-[85%] sm:w-[75%] mx-auto py-2 px-5 rounded-3xl border border-black">
-           <Link href={'/'} className="flex justify-between ">
+           <Link href={'/'} className="flex">
            <Image
               alt="Home Icon"
               src={`/icons/SheetIcons/User.png`}
