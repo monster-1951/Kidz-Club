@@ -4,34 +4,26 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <div className="p-3 grid grid-flow-row xl:grid-cols-2  space-x-2 space-y-3 h-screen overflow-scroll">
-        <Link href={"/"} className="">
+      <div className="p-3 py-5grid grid-flow-row xl:grid-cols-2  overflow-scroll h-fit space-y-3">
+        <Link href={"/"} className="h-[65%] flex flex-col justify-center ">
           <Image
-            src={"/Home 1.png"}
+            src={"/KidsNews.png"}
             alt="Home"
             width={1000}
             height={1000}
-            className="rounded-lg h-fit w-fit mx-auto"
+            className="rounded-lg h-fit w-[70vh] mx-auto"
           />
         </Link>
-        <Link href={"/"} className="w-full mx-auto">
+        <Link href={"/"} className="h-[65%] flex flex-col justify-center">
           <Image
-            src={"/Home 2.png"}
+            src={"/BrainGames.png"}
             alt="Home"
             width={1000}
             height={1000}
-            className="rounded-lg h-fit w-fit mx-auto"
+            className="rounded-lg h-fit w-[70vh] mx-auto "
           />
         </Link>
-        {/* <Link href={"/"} className="w-full mx-auto">
-          <Image
-            src={"/Home 1.png"}
-            alt="Home"
-            width={1000}
-            height={1000}
-            className="rounded-lg h-fit w-fit mx-auto"
-          />
-        </Link> */}
+       
       </div>
     </>
   );
