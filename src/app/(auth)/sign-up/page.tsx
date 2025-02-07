@@ -21,7 +21,7 @@ import axios, { AxiosError } from "axios";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast"
-const page = () => {
+const SignUp = () => {
   const { toast } = useToast();
   const router = useRouter();
   const [Submitting, setSubmitting] = useState(false);
@@ -254,4 +254,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default SignUp;
