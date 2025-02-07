@@ -16,15 +16,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { signIn, useSession } from "next-auth/react";
-// import { useToast } from "@/components/ui/use-toast"/
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 
 const Login = () => {
   const { toast } = useToast()
   const [isSubmitting, setisSubmitting] = useState(false);
   const router = useRouter();
-  // const { toast } = useToast()
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
