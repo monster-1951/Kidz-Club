@@ -18,12 +18,10 @@ import { Button } from "../ui/button";
 
 interface MenuProps {
   session:boolean
-  id?: string;
   uname?: string;
-  points:number
   response:any
 }
-const Menu = ({session, id, uname,points,response }: MenuProps) => {
+const Menu = ({session, uname,response }: MenuProps) => {
   // const getUser = async () => {
   //   if(id){
   //     response = await axios
@@ -38,7 +36,7 @@ const Menu = ({session, id, uname,points,response }: MenuProps) => {
   useEffect(() => {
     // getUser();
     console.log(response)
-  },[]);
+});
   const elements = ["POINTS", "VIRTUAL ASSISTANT", "VIRTUAL MEETUP"];
   return (
     <Sheet>

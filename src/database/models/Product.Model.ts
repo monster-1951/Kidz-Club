@@ -1,4 +1,4 @@
-import mongoose, { mongo, Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { Product } from "../../../types/product";
 
 const ProductSchema = new Schema<Product>(

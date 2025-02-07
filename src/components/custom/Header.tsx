@@ -29,9 +29,7 @@ const Header = () => {
       <div className=" my-auto">
         <Menu
           session={session ? true : false}
-          id={session?.user._id}
           uname={session?.user.username}
-          points={session?.user.points}
           response={response}
         />
       </div>

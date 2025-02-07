@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Selectt from "@/components/custom/Selectt";
 import Link from "next/link";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast"
@@ -39,6 +39,7 @@ const SignUp = () => {
        console.log(err) 
       }
       );
+      console.log(response,"response")
       console.log("👍", values, "This is the data from onSubmit function");
       toast({
         title: "Success",
@@ -53,13 +54,13 @@ const SignUp = () => {
         console.log(err)
       }
       )
-
+      console.log(result,"result")
       router.replace(`/`);
       setSubmitting(false);
     } catch (error) {
       console.error("Error during sign-up:", error);
 
-      const axiosError = error as AxiosError;
+      // const axiosError = error as AxiosError;
 
       // Default error message
 
@@ -87,7 +88,7 @@ const SignUp = () => {
                   <Input placeholder="Name of your Child..." {...field} />
                 </FormControl>
                 <FormDescription>
-                  This is your Child's public display name.
+                  This is the Public display name of your child.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
