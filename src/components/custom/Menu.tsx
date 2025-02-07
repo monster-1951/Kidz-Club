@@ -1,6 +1,5 @@
 // "use client";
 import React, { useEffect } from "react";
-import axios from "axios";
 import {
   Sheet,
   SheetContent,
@@ -24,7 +23,6 @@ interface MenuProps {
   points:number
   response:any
 }
-let response :any
 const Menu = ({session, id, uname,points,response }: MenuProps) => {
   // const getUser = async () => {
   //   if(id){
