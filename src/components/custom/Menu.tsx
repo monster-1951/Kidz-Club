@@ -94,7 +94,7 @@ const Menu = ({session, uname,response }: MenuProps) => {
           {!session && (
             <Link href={"/sign-in"}>
              <Button
-                className="my-auto "
+                className="my-auto mx-auto"
               >
                 LOG IN
               </Button></Link>
