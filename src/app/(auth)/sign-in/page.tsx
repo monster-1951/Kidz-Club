@@ -23,7 +23,6 @@ import Link from "next/link";
 const Login = () => {
   const { toast } = useToast()
   const [isSubmitting, setisSubmitting] = useState(false);
-  const { data: session } = useSession();
   const router = useRouter();
   // const { toast } = useToast()
   const form = useForm<z.infer<typeof loginSchema>>({
