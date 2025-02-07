@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-
+// https://kidz-club.vercel.app/
 export default function Home() {
+  
   return (
     <>
       <div className="p-3 py-5 grid grid-flow-row md:grid-cols-2  overflow-scroll sm:h-[80vh] space-y-3">

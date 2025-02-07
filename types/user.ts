@@ -1,13 +1,17 @@
 import { Document } from "mongoose";
+import { Product } from "./product";
 
 
 export interface User extends Document {
     UserName:string,
-    FullName:string,
-    Gender:"Male"|"Female"|"Prefer not to say",
+    ParentName:string,
+    Points?:number,
+    Gender:"Male"|"Female",
+    ParentGender:"Male"|"Female",
     ParentEmail:string,
-    ParentMobileNumber?:string,
+    ParentMobileNumber?:number,
     Password:string,
     DateOfBirth:string,
-    Cart:[]
+    ParentDateOfBirth?:string,
+    Cart:Product[]
 }

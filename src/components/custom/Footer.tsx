@@ -5,7 +5,7 @@ import React from "react";
 const Footer = () => {
   const elements = ["Home", "Store", "Videos", "Connect", "Tution"];
   return (
-    <div className="bg-[#edf5e5] flex justify-between fixed bottom-0 z-10 p-5 w-full">
+    <div className="bg-[#edf5e5] text-black flex justify-between fixed bottom-0 z-10 p-5 w-full">
       {elements.map((element, index) => {
         return (
           <Link href={"/"} key={index} className="flex flex-col">
