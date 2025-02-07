@@ -69,7 +69,8 @@ const Menu = ({session, uname,response }: MenuProps) => {
                     height={1000}
                     className="h-10 sm:h-14 w-fit"
                   />
-                  <span className="my-auto">{element=="POINTS"?`POINTS - ${response?.Points}` : element}</span>
+                  {/* <span className="my-auto">{element=="POINTS"?`POINTS - ${response?.Points}` : element}</span> */}
+                  <span className="my-auto">{element}</span>
                 </Link>
               );
             })}
