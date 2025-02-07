@@ -10,8 +10,13 @@ const Header = () => {
   const getUser = async () => {
     if (session?.user._id) {
       response = await axios
-        .get(`/api/getCurrentUser/${session?.user._id}`)
-        .then((res) => res.data.user);
+        .post("/api/getCurrentUser", {
+        id: session.user._id, // ✅ Send `id` in the request body
+      })
+        .then((res) => res.data.user).catch((err) => {
+          console.log("Error fetching user :" ,err)
+        }
+        )
       // console.log(response);
       return response;
     }
