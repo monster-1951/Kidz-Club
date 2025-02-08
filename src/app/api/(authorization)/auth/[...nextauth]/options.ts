@@ -44,7 +44,8 @@ export const authOptions: NextAuthOptions = {
       if (user) {
         token._id = user._id?.toString(); // Convert ObjectId to string
         token.username = user.UserName;
-        token.points = user.Points
+        // token.points = user.Points;
+        token.parentname=user.ParentName
       }
       return token;
     },
@@ -52,7 +53,8 @@ export const authOptions: NextAuthOptions = {
       if (token) {
         session.user._id = token._id;
         session.user.username = token.username;
-        session.user.points = token.points
+        // session.user.points = token.points
+        session.user.parentname = token.parentname
       }
       return session;
     },

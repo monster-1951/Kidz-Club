@@ -71,7 +71,7 @@ const Register = () => {
     console.log(values);
   }
   return (
-    <div className="h-[200vh] overflow-y-scroll w-[60%] mx-auto my-auto py-3">
+    <div className="h-[250vh] overflow-y-scroll w-[60%] mx-auto my-auto py-3">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -234,6 +234,34 @@ const Register = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Confirm password</FormLabel>
+                <FormControl>
+                  <Input placeholder="Confirm Password" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+           {/* Parent Password */}
+           <FormField
+            control={form.control}
+            name="ParentPassword"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Create a password for parent</FormLabel>
+                <FormControl>
+                  <Input placeholder="Password" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {/* Confirm Parent Password */}
+          <FormField
+            control={form.control}
+            name="ConfirmParentPassword"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Confirm Parent password</FormLabel>
                 <FormControl>
                   <Input placeholder="Confirm Password" {...field} />
                 </FormControl>

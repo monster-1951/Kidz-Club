@@ -12,6 +12,7 @@ const UserSchema = new Schema<User>(
     Password: { type: String, required: true },
     DateOfBirth: { type: String, required: true },
     Points:{type:Number,default:0},
+    ParentPassword:{type:String,required:true},
     ParentDateOfBirth: { type: String },
     Cart: [{
       type: mongoose.Schema.Types.ObjectId,

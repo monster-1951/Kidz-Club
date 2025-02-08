@@ -11,6 +11,7 @@ export interface User extends Document {
     ParentEmail:string,
     ParentMobileNumber?:number,
     Password:string,
+    ParentPassword:string,
     DateOfBirth:string,
     ParentDateOfBirth?:string,
     Cart:Product[]

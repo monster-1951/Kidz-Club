@@ -40,6 +40,7 @@ const Login = () => {
       console.log(err)
       setisSubmitting(false);
     });
+    localStorage.setItem("Mode","Child Mode")
     setisSubmitting(false);
     if (result?.error) {
       if (result.error === "CredentialsSignin") {
@@ -63,6 +64,7 @@ const Login = () => {
     }
     console.log(values);
   }
+  const Mode = localStorage.getItem("Mode")
   return (
     <div className="w-fit mx-auto my-10 border-2 p-5">
       <Form {...form}>

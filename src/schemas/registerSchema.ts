@@ -16,10 +16,12 @@ export const registerSchema = z.object({
   DateOfBirth: z.string({
     required_error: "When did your child enter your life?",
   }),
+  ParentPassword:passwordSchema,
+  ConfirmParentPassword:passwordSchema,
   ParentDateOfBirth: z
     .string({ required_error: "How long have you been on this Earth?" })
     .optional(),
-}).refine((data) => data.Password === data.ConfirmPassword, {
+}).refine((data) => ( data.Password === data.ConfirmPassword && data.ParentPassword === data.ConfirmParentPassword), {
     message: "Password and confirm password must be same",
     path: ["ConfirmPassword"],
-  });
+  })
