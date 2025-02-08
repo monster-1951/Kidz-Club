@@ -2,9 +2,9 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/schemas/loginSchema";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useToast } from "@/hooks/use-toast"
+import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import {
@@ -20,8 +20,9 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 
 const Login = () => {
-  const { toast } = useToast()
-  const [isSubmitting, setisSubmitting] = useState(false);
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mode, setMode] = useState<string | null>(null);
   const router = useRouter();
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -30,18 +31,29 @@ const Login = () => {
       password: "",
     },
   });
+
+  // Access localStorage safely on the client side
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedMode = localStorage.getItem("Mode");
+      setMode(storedMode);
+    }
+  }, []);
+
   async function onSubmit(values: z.infer<typeof loginSchema>) {
-    setisSubmitting(true);
+    setIsSubmitting(true);
     const result = await signIn("credentials", {
       redirect: false,
       identifier: values.identifier,
       password: values.password,
     }).catch((err) => {
-      console.log(err)
-      setisSubmitting(false);
+      console.log(err);
+      setIsSubmitting(false);
     });
-    localStorage.setItem("Mode","Child Mode")
-    setisSubmitting(false);
+
+    localStorage.setItem("Mode", "Child Mode");
+    setIsSubmitting(false);
+
     if (result?.error) {
       if (result.error === "CredentialsSignin") {
         toast({
@@ -56,7 +68,7 @@ const Login = () => {
           variant: "destructive",
         });
       }
-      setisSubmitting(false)
+      setIsSubmitting(false);
     }
 
     if (result?.url) {
@@ -64,7 +76,7 @@ const Login = () => {
     }
     console.log(values);
   }
-  const Mode = localStorage.getItem("Mode")
+
   return (
     <div className="w-fit mx-auto my-10 border-2 p-5">
       <Form {...form}>
