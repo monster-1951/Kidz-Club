@@ -1,6 +1,5 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useSession } from "next-auth/react";
@@ -13,14 +12,23 @@ const ParentPasswordInput = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const username = session?.user.username;
+  const [mode, setMode] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Check for localStorage only on the client side
+    const storedMode = typeof window !== "undefined" ? localStorage.getItem("Mode") : null;
+    setMode(storedMode);
+  }, []);
+
   const handleLogin = async () => {
     try {
       const response = await axios.post("/api/parentAuth", {
         username,
         password,
       });
-      localStorage.setItem("Mode", "Parent Mode");
-      // revalidatePath("/")
+      if (typeof window !== "undefined") {
+        localStorage.setItem("Mode", "Parent Mode");
+      }
       router.replace("/");
       window.location.reload();
       console.log("Response:", response.data);
@@ -28,8 +36,8 @@ const ParentPasswordInput = () => {
       console.error("Login failed:", error);
     }
   };
-  const Mode = localStorage.getItem("Mode");
-  if (Mode === "Child Mode") {
+
+  if (mode === "Child Mode") {
     return (
       <div className="flex flex-col justify-center h-[60vh]">
         <div className="flex flex-col items-center gap-4 p-4 border rounded-lg shadow-md w-80 mx-auto">
@@ -56,18 +64,20 @@ const ParentPasswordInput = () => {
           <p className="text-left font-semibold">You are in Parent Mode</p>
           
           <div className="flex h-fit flex-col space-y-5">
-          <Link href={"/"} className="w-full mx-auto">
-            <Button>Go to Home</Button>
-          </Link>
-          <Button
-            onClick={() => {
-              localStorage.setItem("Mode", "Child Mode");
-              window.location.reload();
-            }}
-            className=" h-fit"
-          >
-            Switch to Child Mode
-          </Button>
+            <Link href={"/"} className="w-full mx-auto">
+              <Button>Go to Home</Button>
+            </Link>
+            <Button
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  localStorage.setItem("Mode", "Child Mode");
+                }
+                window.location.reload();
+              }}
+              className="h-fit"
+            >
+              Switch to Child Mode
+            </Button>
           </div>
         </div>
       </div>

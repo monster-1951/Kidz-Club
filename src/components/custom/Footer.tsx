@@ -1,12 +1,21 @@
-'use client'
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const Footer = () => {
-  const Mode = localStorage.getItem("Mode");
+  const [mode, setMode] = useState<string | null>(null);
   const elements = ["Home", "Store", "Videos", "Connect", "Tution"];
-  if (Mode == "Child Mode"){
+
+  useEffect(() => {
+    // Ensure that localStorage is only accessed on the client-side
+    if (typeof window !== "undefined") {
+      const storedMode = localStorage.getItem("Mode");
+      setMode(storedMode);
+    }
+  }, []);
+
+  if (mode === "Child Mode") {
     return (
       <div className="bg-[#edf5e5] text-black flex justify-between fixed bottom-0 z-10 p-5 w-full">
         {elements.map((element, index) => {
@@ -29,12 +38,11 @@ const Footer = () => {
     );
   } else {
     return (
-      <>
-      <div className="bg-[#edf5e5] text-black flex justify-between fixed bottom-0 z-10 p-5 w-full">Parent Footer</div>
-      </>
-    )
+      <div className="bg-[#edf5e5] text-black flex justify-between fixed bottom-0 z-10 p-5 w-full">
+        Parent Footer
+      </div>
+    );
   }
- 
 };
 
 export default Footer;

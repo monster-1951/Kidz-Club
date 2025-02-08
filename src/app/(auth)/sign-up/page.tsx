@@ -20,7 +20,7 @@ import Link from "next/link";
 import axios from "axios";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useToast } from "@/hooks/use-toast"
+import { useToast } from "@/hooks/use-toast";
 const Register = () => {
   const { toast } = useToast();
   const router = useRouter();
@@ -35,26 +35,26 @@ const Register = () => {
   async function onSubmit(values: z.infer<typeof registerSchema>) {
     setSubmitting(true);
     try {
-      const response = await axios.post("/api/register", values).catch((err) => {
-       console.log(err) 
-      }
-      );
-      console.log(response,"response")
+      const response = await axios
+        .post("/api/register", values)
+        .catch((err) => {
+          console.log(err);
+        });
+      console.log(response, "response");
       console.log("👍", values, "This is the data from onSubmit function");
       toast({
         title: "Success",
-        description: "User Registered Successfully"
+        description: "User Registered Successfully",
       });
-      console.log(values.ParentEmail,values.Password,"👍")
-      const result =await signIn("credentials", {
+      console.log(values.ParentEmail, values.Password, "👍");
+      const result = await signIn("credentials", {
         redirect: false,
         identifier: values.UserName,
         password: values.Password.toString(),
       }).catch((err) => {
-        console.log(err)
-      }
-      )
-      console.log(result,"result")
+        console.log(err);
+      });
+      console.log(result, "result");
       router.replace(`/`);
       setSubmitting(false);
     } catch (error) {
@@ -241,8 +241,8 @@ const Register = () => {
               </FormItem>
             )}
           />
-           {/* Parent Password */}
-           <FormField
+          {/* Parent Password */}
+          <FormField
             control={form.control}
             name="ParentPassword"
             render={({ field }) => (
