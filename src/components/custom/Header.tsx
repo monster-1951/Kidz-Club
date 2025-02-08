@@ -34,7 +34,7 @@ const Header = () => {
   };
 
   const capitalizeFirstLetter = (str: string): string => {
-    return str?.charAt(0).toUpperCase() || "U";
+    return str?.charAt(0).toUpperCase() || "";
   };
 
   const C = capitalizeFirstLetter(session?.user.username);
@@ -46,7 +46,7 @@ const Header = () => {
     return (
       <div className="bg-[#fbf1ee] h-[10vh] p-3 flex justify-between text-black font-bold sm:text-2xl my-auto top-0 sticky">
         <div className="flex space-x-2 justify-between ">
-          <div className="h-6 w-6 bg-[#bad194] rounded-full sm:h-12 sm:w-12 my-auto text-center text-white font-bold">{C}</div>
+          <div className="h-6 w-6 bg-[#bad194] rounded-full sm:h-12 sm:w-12 my-auto text-center text-white font-bold sm:p-2">{C}</div>
         </div>
         <div className="my-auto -ml-[15%]">
           WELCOME {session?.user.username}
@@ -58,9 +58,9 @@ const Header = () => {
     );
   } else {
     return (
-      <div className="bg-[#fbf1ee] h-[10vh] p-3 flex justify-between text-black font-bold sm:text-2xl my-auto top-0 sticky">
+      <div className="bg-[#fffdf5] h-[10vh] p-3 flex justify-between text-black font-bold sm:text-2xl my-auto top-0 sticky">
         <div className="flex space-x-2 justify-between ">
-          <div className="h-6 w-6 bg-[#bad194] rounded-full sm:h-12 sm:w-12 my-auto text-center text-white font-bold">{P}</div>
+          <div className="h-6 w-6 bg-[#d1e4e2] rounded-full sm:h-12 sm:w-12 my-auto text-center text-white font-bold sm:p-2">{P}</div>
         </div>
         <div className="my-auto -ml-[15%]">
           WELCOME {session?.user.parentname}

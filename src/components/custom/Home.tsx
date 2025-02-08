@@ -24,7 +24,7 @@ const Homee = () => {
               alt="Home"
               width={1000}
               height={1000}
-              className="rounded-lg h-fit w-[70vh] mx-auto"
+              className="rounded-lg h-fit w-[70vh] mx-auto mt-10 md:mt-0"
             />
           </Link>
           <Link href={"/"} className="h-[65%] sm:h-[80%] flex flex-col justify-center">
@@ -42,8 +42,25 @@ const Homee = () => {
   } else {
     return (
       <>
-        <div>
-          Parent Mode
+        <div className="p-3 py-5 grid grid-flow-row md:grid-cols-2  overflow-scroll sm:h-[80vh] space-y-3">
+          <Link href={"/"} className="h-[65%] sm:h-[80%] flex flex-col justify-center">
+            <Image
+              src={"/Parents Networking.png"}
+              alt="Home"
+              width={1000}
+              height={1000}
+              className="rounded-lg h-fit w-[70vh] mx-auto mt-10 md:mt-0"
+            />
+          </Link>
+          <Link href={"/"} className="h-[65%] sm:h-[80%] flex flex-col justify-center">
+            <Image
+              src={"/Child Activities.png"}
+              alt="Home"
+              width={1000}
+              height={1000}
+              className="rounded-lg h-fit w-[70vh] mx-auto "
+            />
+          </Link>
         </div>
       </>
     );
