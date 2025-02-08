@@ -5,8 +5,21 @@ import Link from "next/link";
 
 const Footer = () => {
   const [mode, setMode] = useState<string | null>(null);
-  const elements = ["Home", "Store", "Videos", "Connect", "Tution"];
-
+  const elements = [
+    { Name: "Home", Route: "/" },
+    { Name: "Store", Route: "/Store" },
+    { Name: "Videos", Route: "/" },
+    { Name: "Connect", Route: "/" },
+    { Name: "Tution", Route: "/" },
+  ];
+  const ParentElements = [
+    { Name: "Home", Route: "/" },
+    { Name: "Store", Route: "/Store" },
+    { Name: "Control", Route: "/" },
+    { Name: "Videos", Route: "/" },
+    { Name: "Tasks", Route: "/" },
+    
+  ];
   useEffect(() => {
     // Ensure that localStorage is only accessed on the client-side
     if (typeof window !== "undefined") {
@@ -20,17 +33,17 @@ const Footer = () => {
       <div className="bg-[#edf5e5] text-black flex justify-between fixed bottom-0 z-10 p-5 w-full">
         {elements.map((element, index) => {
           return (
-            <Link href={"/"} key={index} className="flex flex-col">
+            <Link href={element.Route} key={index} className="flex flex-col">
               <div className="text-3xl">
                 <Image
                   alt="Home Icon"
-                  src={`/icons/${element}.png`}
+                  src={`/icons/FooterIcons/ChildIcons/${element.Name}.png`}
                   width={1000}
                   height={1000}
                   className="h-10 sm:h-14 w-fit"
                 />
               </div>
-              <div>{element}</div>
+              <div>{element.Name}</div>
             </Link>
           );
         })}
@@ -39,7 +52,22 @@ const Footer = () => {
   } else {
     return (
       <div className="bg-[#edf5e5] text-black flex justify-between fixed bottom-0 z-10 p-5 w-full">
-        Parent Footer
+        {ParentElements.map((element, index) => {
+          return (
+            <Link href={element.Route} key={index} className="flex flex-col">
+              <div className="text-3xl">
+                <Image
+                  alt="Home Icon"
+                  src={`/icons/FooterIcons/ParentIcons/${element.Name}.png`}
+                  width={1000}
+                  height={1000}
+                  className="h-10 sm:h-14 w-fit"
+                />
+              </div>
+              <div className="text-center">{element.Name}</div>
+            </Link>
+          );
+        })}
       </div>
     );
   }

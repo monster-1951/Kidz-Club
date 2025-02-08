@@ -46,13 +46,19 @@ const Header = () => {
     return (
       <div className="bg-[#fbf1ee] h-[10vh] p-3 flex justify-between text-black font-bold sm:text-2xl my-auto top-0 sticky">
         <div className="flex space-x-2 justify-between ">
-          <div className="h-6 w-6 bg-[#bad194] rounded-full sm:h-12 sm:w-12 my-auto text-center text-white font-bold sm:p-2">{C}</div>
+          <div className="h-6 w-6 bg-[#bad194] rounded-full sm:h-12 sm:w-12 my-auto text-center text-white font-bold sm:p-2">
+            {C}
+          </div>
         </div>
         <div className="my-auto -ml-[15%]">
           WELCOME {session?.user.username}
         </div>
         <div className="my-auto">
-          <Menu session={session ? true : false} uname={session?.user.username} Mode="Child" />
+          <Menu
+            session={session ? true : false}
+            uname={session?.user.username}
+            Mode="Child"
+          />
         </div>
       </div>
     );
@@ -60,13 +66,19 @@ const Header = () => {
     return (
       <div className="bg-[#fffdf5] h-[10vh] p-3 flex justify-between text-black font-bold sm:text-2xl my-auto top-0 sticky">
         <div className="flex space-x-2 justify-between ">
-          <div className="h-6 w-6 bg-[#d1e4e2] rounded-full sm:h-12 sm:w-12 my-auto text-center text-white font-bold sm:p-2">{P}</div>
+          <div className="h-6 w-6 bg-[#d1e4e2] rounded-full sm:h-12 sm:w-12 my-auto text-center text-black font-bold sm:p-2">
+            {P}
+          </div>
         </div>
         <div className="my-auto -ml-[15%]">
           WELCOME {session?.user.parentname}
         </div>
         <div className="my-auto">
-          <Menu session={session ? true : false} uname={session?.user.parentname} Mode="Parent" />
+          <Menu
+            session={session ? true : false}
+            uname={session?.user.parentname}
+            Mode="Parent"
+          />
         </div>
       </div>
     );

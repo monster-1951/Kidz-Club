@@ -40,6 +40,9 @@ const Menu = ({ session, uname, Mode }: MenuProps) => {
         <SheetContent className="bg-[#ffedac] sm:w-full w-[60%]">
           <SheetHeader className="  space-y-5">
             <SheetTitle className="text-center bg-[#bcb497] w-[85%] sm:w-[75%] mx-auto py-2 px-5 rounded-3xl border border-black">
+             
+              {/* Profile */}
+             
               <Link href={"/"} className="flex">
                 <Image
                   alt="Home Icon"
@@ -53,6 +56,9 @@ const Menu = ({ session, uname, Mode }: MenuProps) => {
             </SheetTitle>
             {session && (
               <SheetDescription className="font-bold text-black sm:w-[75%] space-y-10 mx-auto text-left w-[85%]">
+               
+                {/* Switch Mode */}
+               
                 <Link href={"/ParentAuth"} className="flex space-x-2">
                   <Image
                     alt="Home Icon"
@@ -69,12 +75,14 @@ const Menu = ({ session, uname, Mode }: MenuProps) => {
                   </span>
                 </Link>
 
+                {/* Elements */}
+                
                 {elements.map((element, index) => {
                   return (
                     <Link href={"/"} key={index} className="flex space-x-4">
                       <Image
                         alt="Home Icon"
-                        src={`/icons/SheetIcons/${element}.png`}
+                        src={`/icons/SheetIcons/ChildIcons/${element}.png`}
                         width={1000}
                         height={1000}
                         className="h-10 sm:h-14 w-fit"
@@ -85,6 +93,8 @@ const Menu = ({ session, uname, Mode }: MenuProps) => {
                   );
                 })}
 
+                {/* Logout */}
+                
                 <span className="flex">
                   <Image
                     alt="Home Icon"

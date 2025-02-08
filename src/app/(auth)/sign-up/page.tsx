@@ -65,7 +65,11 @@ const Register = () => {
       // Default error message
 
       ("There was a problem with your sign-up. Please try again.");
-
+      toast({
+        title: "Sign Up Failed",
+        variant: "destructive",
+      });
+      
       setSubmitting(false);
     }
     console.log(values);

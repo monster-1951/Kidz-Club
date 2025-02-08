@@ -32,10 +32,10 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           {" "}
+          <Toaster />
           <Header />
           {children}
           <Footer />
-          <Toaster />
         </body>
       </AuthProvider>
     </html>
